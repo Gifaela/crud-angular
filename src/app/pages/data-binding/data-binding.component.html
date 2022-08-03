@@ -1,0 +1,38 @@
+<h1 [class.text-red]="textRed">O nome é {{text}}</h1>
+<!--property binding de class-->
+<h1 [class]="textRed2" class="{{textRed2}}">O nome é {{text}}</h1>
+<!--interpolação binding de class-->
+<h1 [class]="textRed2" [style.fontSize]="fontSize">O nome é {{text}}</h1>
+<!-- <h1>O nome é {{1+1}}</h1> -->
+
+<!-- <h1 [class] ="textRed"> O nome é {{retornaNome()}}</h1> -->
+
+<!-- <h1>O nome é {{retornaNome()}}</h1> -->
+
+
+<!-- <img src="{{imageUrl}}"> -->
+<!-- <img [src]="imageUrl" [alt]="imageDesc"> -->
+<img [src]="imageUrl" [alt]="imageDesc" [style.width.px]="widthImg">
+
+<!-- <button (click)="clicou()">Clique</button> -->
+
+<button [attr.aria-label]="buttonText" [style.backgroundColor]="bgColor">{{buttonText}}</button>
+
+<input #input (keyup)="clica(input.value)"> {{input.value}}
+
+<!-- Two-way -->
+<p class="text-default">Aqui está o two-way:' {{textInput}}'</p>
+<input type="text" class="form-control" [(ngModel)]="textInput">
+
+<!-- <app-button [btnText]="'Enviar'"></app-button> -->
+
+<app-button [btnText]="'Cancelar'" [btnType]="'btn-danger'"></app-button>
+<app-button [btnText]="'Salvar'" [btnType]="'btn-success'"></app-button>
+<app-button btnText="Enviar" btnType="btn-primary"></app-button>
+<app-button btnText="Teste" btnType="btn-default" (clickChildren)="clicouNoFilho($event)"></app-button>
+
+<!-- <app-life-cycle [number]="number"></app-life-cycle>
+<app-button btnText="Incrementa" btnType="btn-primary" (click)="incremento()"></app-button> -->
+
+<app-life-cycle [number]="number" *ngIf="!destroy"></app-life-cycle>
+<app-button [btnText]="'Destori Componente'" [btnType]="'btn-danger'" (click)="destroiComponente()"></app-button>
