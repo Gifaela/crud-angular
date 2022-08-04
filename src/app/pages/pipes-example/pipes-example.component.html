@@ -1,0 +1,96 @@
+<div class="form-group">
+    <label for="number">Number:</label>
+    <input type="text" [(ngModel)]="number" class="form-control" id="number">
+    <p>{{number}}</p>
+    <button class="btn btn-success" (click)="mudaValor()">Click</button>
+</div>
+
+<div class="">
+    <h1>Resultado sem formatação:</h1>
+    <p>{{number | number}}</p>
+    <br>
+
+    <h1>Resultado com formatação:</h1>
+    <p>{{number | number:'2.1-1'}}</p>
+    <br>
+    <h1>Resultado em moeda:</h1>
+    <p>{{number | currency:'BRL'}}</p>
+    <!--BRL é o código da moeda REAL-->
+    <br>
+
+    <h1>Resultado em porcentadem:</h1>
+    <p>{{number | percent}}</p>
+    <br>
+
+    <h1>Texto</h1>
+    <!-- <p>{{text | uppercase}}</p> -->
+    <p>{{text}}</p>
+    <!--Fomatado com uppercase no ts-->
+    <p>{{text | lowercase}}</p>
+    <p>{{text | titlecase}}</p>
+    <br>
+
+    <h1>Data de Hoje</h1>
+    <p>{{date}}</p>
+    <P>{{date | date}}</P>
+    <P>{{date | date:'full'}}</P>
+    <P>{{date | date:'short'}}</P>
+    <P>{{date | date:'shortTime'}}</P>
+    <br>
+
+    <h1>Data de Portugues</h1>
+    <P>{{date | date:'dd/MM/yyyy':'GMT-0300':'en-US'}}</P>
+    <h1>Encadeando </h1>
+    <P>{{date | date:'full' | uppercase}}</P>
+    <br>
+
+    <h1>Json</h1>
+    <p>{{pessoa | json}}</p>
+    <br>
+</div>
+
+<div class="form-group">
+    <label for="number">Texto:</label>
+    <input type="text" [(ngModel)]="texto" class="form-control" id="number">
+</div>
+<div class="">
+    <h1>Slice</h1>
+    <p>{{texto | slice:1:4}}</p>
+    <!--não quero o 0 e nem o 4, quero o 1,2,3-->
+    <!-- HELLO WORLD  -> ELL   -->
+</div>
+
+
+<div class="container">
+    <div class="col">
+        <div class="row-6">
+            <div class="form-group">
+                <label for="">Print Pipe Text:</label>
+                <input type="text" name="text" id="text" #nome>
+                <button class="btn btn-primary" (click)="add(nome.value)">add</button>
+            </div>
+        </div>
+        <div class="row-6">
+            <h3>Lista Formatada</h3>
+            <p>Tamanho da lista {{nomes.length}}</p>
+            <p>{{nomes | printList}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- 
+    
+    DecimalPipe - number:'2.0-1' formata para uma casa depos da virgula se houver número (2 -> 2)(2.000 ->2.0)
+    currencyPipe - transforma em moeda 
+    PercentPipe - porcentagem
+
+    UpperCasePipe - deixa tudo as letras maiúsculo
+    LowerCasePipe - deixa tudo as letras minúsculas 
+    TitleCasePipe - primeira letra de cada palavra em maiúsculo
+
+    DatePipe - formata data
+
+    Json - printa um objeto 
+
+    Slice
+ -->
